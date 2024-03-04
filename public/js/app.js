@@ -5459,6 +5459,22 @@ __webpack_require__.r(__webpack_exports__);
     addProduct: function addProduct(index) {
       this.$emit("emitAdd", index);
     },
+    openAddToCartModal: function openAddToCartModal(index) {
+      this.addToCartModal.product = this.listproduct[index];
+      this.addToCartModal.show = true;
+    },
+    openAddAllStockModal: function openAddAllStockModal(index) {
+      this.addAllStockModal.product = this.listproduct[index];
+      this.addAllStockModal.show = true;
+    },
+    addToCart: function addToCart(product) {
+      console.log('Added to cart:', product);
+      this.closeModal();
+    },
+    closeModal: function closeModal() {
+      this.addToCartModal.show = false;
+      this.addAllStockModal.show = false;
+    },
     addAllStock: function addAllStock(index) {
       var item = this.listproduct[index];
       var quantityToAdd = item.stock;
@@ -11120,7 +11136,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\nh1[data-v-767bda9e] {\n    text-align: center;\n}\n.btn-group[data-v-767bda9e] {\n    justify-content: center;\n}\n.container-card[data-v-767bda9e] {\n    justify-content: center;\n    display: flex;\n    flex-wrap: wrap;\n    /* max-height: 400px; */\n}\n.card[data-v-767bda9e] {\n    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n    transition: 0.3s;\n    width: 20%;\n    margin: 10px;\n}\n.card[data-v-767bda9e]:hover {\n    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.container[data-v-767bda9e] {\n    padding: 5px;\n}\nimg[data-v-767bda9e] {\n    width: 100% !important;\n}\ntable[data-v-767bda9e] {\n    border-collapse: collapse;\n    width: 100%;\n}\nth[data-v-767bda9e], td[data-v-767bda9e] {\n    padding: 8px;\n    text-align: left;\n    border-bottom: 1px solid #ddd;\n}\nbutton[data-v-767bda9e] {\n    padding: 5px 10px;\n    border-radius: 10px;\n    background-color: lightblue;\n    cursor:pointer;\n}\ndiv[data-v-767bda9e] {\n    margin: 20px;\n}\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.modal-overlay[data-v-767bda9e] {\n  position: fixed;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  background: rgba(0, 0, 0, 0.5);\n  z-index: 1;\n}\n.modal[data-v-767bda9e] {\n  position: fixed;\n  top: 50%;\n  left: 50%;\n  transform: translate(-50%, -50%);\n  background: #fff;\n  padding: 20px;\n  z-index: 2;\n}\nh1[data-v-767bda9e] {\n        text-align: center;\n}\n.btn-group[data-v-767bda9e] {\n        justify-content: center;\n}\n.container-card[data-v-767bda9e] {\n        justify-content: center;\n        display: flex;\n        flex-wrap: wrap;\n}\n.card[data-v-767bda9e] {\n        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);\n        transition: 0.3s;\n        width: 20%;\n        margin: 10px;\n}\n.card[data-v-767bda9e]:hover {\n        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);\n}\n.container[data-v-767bda9e] {\n        padding: 5px;\n}\nimg[data-v-767bda9e] {\n        width: 100% !important;\n}\ntable[data-v-767bda9e] {\n        border-collapse: collapse;\n        width: 100%;\n}\nth[data-v-767bda9e], td[data-v-767bda9e] {\n        padding: 8px;\n        text-align: left;\n        border-bottom: 1px solid #ddd;\n}\nbutton[data-v-767bda9e] {\n        padding: 5px 10px;\n        border-radius: 10px;\n        background-color: lightblue;\n        cursor:pointer;\n}\ndiv[data-v-767bda9e] {\n        margin: 20px;\n}\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 

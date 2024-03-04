@@ -60,6 +60,22 @@
         addProduct(index) {
             this.$emit("emitAdd", index);
         },
+        openAddToCartModal(index) {
+            this.addToCartModal.product = this.listproduct[index];
+            this.addToCartModal.show = true;
+        },
+        openAddAllStockModal(index) {
+            this.addAllStockModal.product = this.listproduct[index];
+            this.addAllStockModal.show = true;
+        },
+        addToCart(product) {
+            console.log('Added to cart:', product);
+            this.closeModal();
+        },
+        closeModal() {
+            this.addToCartModal.show = false;
+            this.addAllStockModal.show = false;
+        },
         addAllStock(index) {
             const item = this.listproduct[index];
             const quantityToAdd = item.stock;
@@ -68,10 +84,29 @@
             }
         }
     }
+
 }
 </script>
 
 <style scoped>
+    .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: 1;
+    }
+    .modal {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: #fff;
+        padding: 20px;
+        z-index: 2;
+    }
     h1 {
         text-align: center;
     }
@@ -82,7 +117,6 @@
         justify-content: center;
         display: flex;
         flex-wrap: wrap;
-        /* max-height: 400px; */
     }
     .card {
         box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
